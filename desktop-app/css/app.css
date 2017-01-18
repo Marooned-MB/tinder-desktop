@@ -153,7 +153,7 @@ html, body, body > div.ng-scope {
 }
 
 .main-photo-container {
-    flex: 0 0 640px;
+    flex: 0 0 660px;
     order: 1;
     margin: 16px;
     position: relative;
@@ -173,6 +173,10 @@ html, body, body > div.ng-scope {
     position: absolute;
 }
 
+.main-photo-toolbar {
+    position: absolute;
+    top: 660px;
+}
 
 /* Templates - swipe */
 
@@ -490,6 +494,10 @@ html, body, body > div.ng-scope {
 #conversation .messages-list {
     padding: 14px;
     overflow: hidden;
+}
+
+#conversation .messages-list .message {
+    white-space: pre-wrap;
 }
 
 #conversation div.from-me,

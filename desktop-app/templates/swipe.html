@@ -20,6 +20,9 @@
                 <i class="fa fa-thumbs-o-up"></i>
               </div>
             </div>
+            <div class="main-photo-toolbar">
+              <button ng-click="savePhoto(allPeople[peopleIndex].photoIndex)">Save</button>
+            </div>
           </div>
           <!-- information including bio etc -->
           <div class="profile">
@@ -44,6 +47,9 @@
                 <img ng-src="{{photo.processedFiles[2].url}}" ng-click="swapPhoto($index)" data-photo-index="{{$index}}"
                   ng-class="{'selected': $index === allPeople[peopleIndex].photoIndex}" />
               </div>
+            </div>
+            <div class="small-photos-toolbar">
+              <button ng-click="savePhotos()">Save all</button>
             </div>
           </div>
         </div>

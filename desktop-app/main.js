@@ -4,7 +4,7 @@ const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const Menu = electron.Menu;
-const osLocale = require('os-locale'); 
+const osLocale = require('os-locale');
 
 var template = [
   {
@@ -199,7 +199,7 @@ app.on('ready', function() {
 
 // Create the initial window.
 function createWindow() {
-  mainWindow = new BrowserWindow({width: 1200, height: 768});
+  mainWindow = new BrowserWindow({width: 1200, height: 1000});
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   mainWindow.on('closed', function() {
