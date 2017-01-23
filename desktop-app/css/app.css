@@ -446,6 +446,7 @@ html, body, body > div.ng-scope {
     display: flex;
     flex-direction: column;
     flex: 1;
+    min-width: 0;
 }
 
 .message-header {
