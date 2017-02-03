@@ -1,11 +1,15 @@
 /* General styles */
 
+@font-face{
+    font-family: 'EmojiOne Color';src:url('../fonts/EmojiOneColor-SVGinOT.ttf') format('truetype');
+}
+
 * {
-    font-family: 'Raleway', Arial;
+    font-family: 'EmojiOne Color', 'Raleway', Arial;
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Raleway', Arial;
+    font-family: 'EmojiOne Color', 'Raleway', Arial;
 }
 
 a {
