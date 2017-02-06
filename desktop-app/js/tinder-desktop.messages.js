@@ -19,15 +19,15 @@
     var ENTER = 13;
 
     $scope.unmatch = function(conversation){
-      swal({   
-        title: "Unmatch with " + conversation.name + "?",   
-        text: "You will not be able to message this person",   // Unmatch with conversation.name 
-        type: "info",   
-        showCancelButton: true,   
-        confirmButtonColor: "#DD6B55",   
-        confirmButtonText: "Yes, unmatch",   
-        closeOnConfirm: true }, 
-      function(){   
+      swal({
+        title: "Unmatch with " + conversation.name + "?",
+        text: "You will not be able to message this person",   // Unmatch with conversation.name
+        type: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Yes, unmatch",
+        closeOnConfirm: true },
+      function(){
         API.unmatch(conversation.matchId)
       });
     };
@@ -49,7 +49,7 @@
     };
 
     $scope.keypress = function(event) {
-      if (event.which == ENTER) {
+      if (!(event.ctrlKey || event.shiftKey) && event.which == ENTER) {
         event.preventDefault();
         if ($scope.message.length > 0) {
           API.sendMessage($scope.conversation.matchId, $scope.message);
@@ -76,7 +76,7 @@
       return filtered;
     };
   });
-  
+
   module.directive('shortTimeAgo', function($interval) {
     return {
       restrict: 'A',
