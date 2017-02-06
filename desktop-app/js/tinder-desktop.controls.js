@@ -147,7 +147,11 @@
         sentDate: message.sent_date,
         text: message.message,
         fromMe: (message.from == localStorage.userId)
-      })
+      });
+      //display number of new incoming messages when window not active
+      if (!document.hasFocus() && message.from != localStorage.userId) {
+        document.title = '(' + (++window.newMessages) + ') ' + window.originalTitle;
+      }
       // Remove possibly pending messages
       var pending = API.conversations[message.match_id].pending;
       if(Array.isArray(pending) && pending.indexOf(message.message) >= 0) {

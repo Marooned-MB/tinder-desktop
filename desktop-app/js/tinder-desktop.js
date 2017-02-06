@@ -1,7 +1,7 @@
 (function() {
   var app = angular.module('tinder-desktop', ['tinder-desktop.login', 'tinder-desktop.swipe', 'tinder-desktop.messages', 'tinder-desktop.profile','tinder-desktop.discovery', 'ngRoute', 'tinder-desktop.settings', 'tinder-desktop.controls', 'tinder-desktop.common', 'pascalprecht.translate']);
   var remote = require('remote');
-  
+
   app.config(function($routeProvider) {
     var capitalize = function (s) { return s[0].toUpperCase() + s.slice(1); };
 
@@ -37,5 +37,13 @@
     moment.locale(remote.getGlobal('sharedObject').locale);
     $location.path(firstPage);
     Controls.init();
+
+    //not very angular way but short and working
+    window.originalTitle = document.title;
+    window.newMessages = 0;
+    $(window).on('focus', function() {
+        window.newMessages = 0;
+        document.title = window.originalTitle;
+    });
   });
 })();
