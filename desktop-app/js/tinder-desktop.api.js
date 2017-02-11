@@ -252,7 +252,7 @@
             handleError(err, reject);
             return;
           }
-          console.log(JSON.stringify(res));
+          // console.log(JSON.stringify(res));
           resolve(res);
         });
       });
