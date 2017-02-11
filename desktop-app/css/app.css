@@ -501,7 +501,8 @@ html, body, body > div.ng-scope {
     overflow: hidden;
 }
 
-#conversation .messages-list .message {
+#conversation .messages-list .message,
+#conversation .messages-list .pending-message {
     white-space: pre-wrap;
 }
 
