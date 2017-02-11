@@ -35,6 +35,12 @@
     };
   });
 
+  module.filter('giphy', function () {
+    return function(message) {
+      return message.match(/https:\/\/media\d+\.giphy\.com\/media\//) ? '<img src="' + message + '">' : message;
+    };
+  });
+
   module.factory('download', function() {
     var factoryObj = {};
 
