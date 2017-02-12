@@ -37,7 +37,7 @@
 
   module.filter('giphy', function () {
     return function(message) {
-      return message.match(/https:\/\/media\d+\.giphy\.com\/media\//) ? '<img src="' + message + '">' : message;
+      return message.match(/https:\/\/media\d+\.giphy\.com\/media\//) ? '<img src="' + message + '">' : message.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     };
   });
 
