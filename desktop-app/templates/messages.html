@@ -29,6 +29,7 @@
       <div class="message-header">
         <div class="chat-with">
           {{'MESSAGES.CHAT_WITH' | translate}} <a ng-href="#/profile/{{conversation.userId}}">{{conversation.name}}</a>
+          <button ng-click="saveMessages()">Save conversation</button>
         </div>
         <div class="match-options">
           <a ng-href="#/profile/{{conversation.userId}}">

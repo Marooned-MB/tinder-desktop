@@ -1,7 +1,7 @@
 (function() {
   module = angular.module('tinder-desktop.messages', ['tinder-desktop.api', 'tinder-desktop.settings', 'tinder-desktop.common', 'ngSanitize']);
 
-  module.controller('MessagesController', function($scope, API, Settings) {
+  module.controller('MessagesController', function($scope, API, Settings, download) {
     // console.log(API.conversations)
     $scope.conversations = API.conversations;
     $scope.conversationCount = Object.keys($scope.conversations).length;
@@ -61,7 +61,11 @@
         }
       }
     };
-  });
+
+    $scope.saveMessages = function() {
+      download.messages($scope.conversation);
+    }
+});
 
   module.filter('orderObjectBy', function() {
     return function(items, field, reverse) {

@@ -90,6 +90,20 @@
       });
     };
 
+    factoryObj.messages = function(conversation) {
+      const fs = require('fs');
+      const request = require('request');
+      const path = require('path');
+      const destFolder = 'images';
+
+      const filename = new Date().toISOString().split('T')[0];
+      fs.existsSync(destFolder) || fs.mkdirSync(destFolder);	//make sure path exists
+      const dest = path.normalize(destFolder + '/' + conversation.name + ' (' + (moment.duration(moment().diff(moment(conversation.birthDate))).years()) + ' lat) - [' + conversation.userId.substr(0,6) + ']' + '-conversation [' + filename + '].txt');
+
+      var file = fs.createWriteStream(dest);
+      conversation.messages.forEach(message => file.write('[' + message.sentDate.slice(0,-5).replace('T', ' ') + (message.fromMe ? `] Ja: ` : `] ${conversation.name}: `) + message.text + '\n'));
+    };
+
     return factoryObj;
   });
 })();
